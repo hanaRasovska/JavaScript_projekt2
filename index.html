@@ -11,11 +11,28 @@
 <body>
 
 
-	<h1>Superkvíz</h1>
+<h1>Superkvíz</h1>
 
-	<!-- přidat <div> pro kvíz -->
-	<!-- do něj přidat <div>y pro samotné držení otázky -->
-	<!-- také nezapomenout na <div> pro výsledek a hodnocení -->
+<div class="kviz">
+		<p id="poradi">Otazka</p>
+		<p id="otazka">Zneni otazky</p>
+
+    <div class="obsah">
+      <div id="moznosti">
+				<ul id="odpovedi">
+          <li data-odpoved="0">Ledová královna</li>
+          <li data-odpoved="1">Sněhurka</li>
+          <li data-odpoved="2">Já, já jsem nejkrásnější!</li>
+        </ul>
+			</div>
+		</div>
+  </div>
+
+  <div class="vysledek">
+    <p>Tvoje hodnocení</p>
+    <div id="hodnoceni">
+    </div>
+  </div>
 
 	<script src="kviz.js"></script>
 
