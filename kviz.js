@@ -121,12 +121,13 @@ function zobrazVysledky() {
     let polozka = `<h3>${i+1}. ${poleOtazek[i].otazka}</h3> <p>Tvoje odpověď: ${mojeOdpoved}</p> <p>${komentar}</p>`;
     
     seznam.push(polozka);
+    
    
   }
   let pocetTrue = poleTrue.length;
   let uspesnost = (pocetTrue/poleOtazek.length)*100;
 
-  document.getElementById("hodnoceni").innerHTML = `${seznam} <h2>Správně je ${pocetTrue} z ${poleOtazek.length}.</h2><h2>Úspěšnost ${uspesnost}%.</h2> `;
+  document.getElementById("hodnoceni").innerHTML = `${seznam.join("")} <h2>Správně je ${pocetTrue} z ${poleOtazek.length}.</h2><h2>Úspěšnost ${uspesnost} %.</h2> `;
 }
 
 
