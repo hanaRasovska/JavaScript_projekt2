@@ -78,7 +78,7 @@ function zobrazOtazku() {
   document.getElementById("poradi").innerHTML = `${poradi + 1} / ${poleOtazek.length}`;
 
   // zneni otazky
-  document.getElementById("otazka").innerHTML = soucasnaOtazka.otazka;
+  document.getElementById("otazka").innerHTML = `<h3>${soucasnaOtazka.otazka}</h3>`;
 
   // vsechny odpovedi
   const ul = document.getElementById("odpovedi");
@@ -120,7 +120,7 @@ function zobrazVysledky() {
     }
 
     if (kontrola==true){
-      komentar = "Odpověděl/a jsi SPRÁVNĚ!";
+      komentar = "Odpověděl/a jsi <strong>SPRÁVNĚ</strong>!";
     }else{
       komentar = `Správná odpověď je: ${poleOtazek[i].moznosti[poleOtazek[i].spravnaOdpoved]}`;
     }
@@ -134,7 +134,7 @@ function zobrazVysledky() {
   let pocetTrue = poleTrue.length;
   let uspesnost = (pocetTrue/poleOtazek.length)*100;
 
-  document.getElementById("hodnoceni").innerHTML = `${seznam.join("")} <h2>Správně je ${pocetTrue} z ${poleOtazek.length}.</h2><h2>Úspěšnost ${uspesnost} %.</h2> `;
+  document.getElementById("hodnoceni").innerHTML = `${seznam.join("")} <h2>Správně je ${pocetTrue} z ${poleOtazek.length}. Úspěšnost ${uspesnost} %.</h2> `;
 }
 
 
