@@ -12,7 +12,8 @@ const poleOtazek = [
       "červenou", "bílou", "modrou", // ...
     ],
     spravnaOdpoved: 0,
-    zvolenaOdpoved: null
+    zvolenaOdpoved: null,
+    obrazek: "obrazky/rajce.jpg"
   },
   {
     otazka: "Jakou barvu má borůvka?",
@@ -20,7 +21,8 @@ const poleOtazek = [
       "žlutou", "tyrkysovou", "modrou", "stříbrnou", // ...
     ],
     spravnaOdpoved: 2,
-    zvolenaOdpoved: null
+    zvolenaOdpoved: null,
+    obrazek: "obrazky/boruvka.jpg"
   },
   {
     otazka: "Jakou barvu má banán?",
@@ -28,7 +30,8 @@ const poleOtazek = [
       "oranžovou", "modrou", "šedou", "fialovou","žlutou", // ...
     ],
     spravnaOdpoved: 4,
-    zvolenaOdpoved: null
+    zvolenaOdpoved: null,
+    obrazek: "obrazky/banan.jpg"
   },
   {
     otazka: "Jakou barvu má hrášek?",
@@ -36,7 +39,8 @@ const poleOtazek = [
       "zelenou", "červenou",// ...
     ],
     spravnaOdpoved: 0,
-    zvolenaOdpoved: null
+    zvolenaOdpoved: null,
+    obrazek: "obrazky/hrasek.jpg"
   },
   {
     otazka: "Jakou barvu má kiwi?",
@@ -44,7 +48,8 @@ const poleOtazek = [
       "chlupatou",  // ...
     ],
     spravnaOdpoved: 0,
-    zvolenaOdpoved: null
+    zvolenaOdpoved: null,
+    obrazek: "obrazky/kiwi.jpg"
   },
 ];
 
@@ -65,8 +70,10 @@ function zaznamenatOdpoved(zvolenaOdpoved) {
 
 function zobrazOtazku() {
   const soucasnaOtazka = poleOtazek[poradi];
-  let obrazek = document.getElementById("obrazek");
-  obrazek.src=`obrazky/${poradi}.jpg`;
+  let fotka = document.getElementById("foto");
+  fotka.style.backgroundImage=`url("${poleOtazek[poradi].obrazek}")`;
+  console.log(poleOtazek[poradi].obrazek);
+
   // poradi
   document.getElementById("poradi").innerHTML = `${poradi + 1} / ${poleOtazek.length}`;
 
