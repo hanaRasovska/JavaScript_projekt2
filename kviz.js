@@ -4,7 +4,8 @@ let poradi = 0;
 let seznam =[];
 
 
-// vytvorim otazky, s moynostma a spravnou moznosti
+
+// pole otazek s moznostmi, spravnymi odpovedmi, zaznamem odpovedi a obrazkem
 const poleOtazek = [
   {
     otazka: "Jakou barvu má rajče?",
@@ -72,7 +73,6 @@ function zobrazOtazku() {
   const soucasnaOtazka = poleOtazek[poradi];
   let fotka = document.getElementById("foto");
   fotka.style.backgroundImage=`url("${poleOtazek[poradi].obrazek}")`;
-  console.log(poleOtazek[poradi].obrazek);
 
   // poradi
   document.getElementById("poradi").innerHTML = `${poradi + 1} / ${poleOtazek.length}`;
@@ -102,7 +102,9 @@ function zobrazOtazku() {
 // vratit vysledky
 
 function zobrazVysledky() {
+  //zruseni vypisu kvizu
   document.getElementById("kviz").style.display = "none";
+  //zobrazeni vypisu vysledku
   document.getElementById("vysledek").style.display = "block";
 
   let kontrola, komentar;
@@ -111,7 +113,7 @@ function zobrazVysledky() {
   for (let i = 0; i < poleOtazek.length; i++) {
     const mojeOdpoved = poleOtazek[i].moznosti[poleOtazek[i].zvolenaOdpoved];
 
-
+    //kontrola spravne odpovedi
     if (poleOtazek[i].zvolenaOdpoved===poleOtazek[i].spravnaOdpoved){
       kontrola = true;
       poleTrue.push("true")
@@ -119,21 +121,22 @@ function zobrazVysledky() {
       kontrola = false;
     }
 
+    //vypis textu pode spravnosti odpovedi
     if (kontrola==true){
       komentar = "Odpověděl/a jsi <strong>SPRÁVNĚ</strong>!";
     }else{
       komentar = `Správná odpověď je: ${poleOtazek[i].moznosti[poleOtazek[i].spravnaOdpoved]}`;
     }
 
+    //vypis hodnoceni jako polozek v seznamu
     let polozka = `<h3>${i+1}. ${poleOtazek[i].otazka}</h3> <p>Tvoje odpověď: ${mojeOdpoved}</p> <p>${komentar}</p>`;
     
     seznam.push(polozka);
-    
-   
   }
+  //vypocet uspesnosti
   let pocetTrue = poleTrue.length;
   let uspesnost = (pocetTrue/poleOtazek.length)*100;
-
+  //vypis vety s celkovym hodnocenim
   document.getElementById("hodnoceni").innerHTML = `${seznam.join("")} <h2>Správně je ${pocetTrue} z ${poleOtazek.length}. Úspěšnost ${uspesnost} %.</h2> `;
 }
 
